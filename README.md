@@ -1,5 +1,6 @@
 ezmesh
 ======
+[![GoDoc](https://godoc.org/github.com/magisterquis/ezmesh?status.svg)](https://godoc.org/github.com/magisterquis/ezmesh)
 ezmesh is a lightweight, user-friendly mesh networking library built on top of
 [github.com/weaveworks/mesh](https://github.com/weaveworks/mesh).
 
@@ -123,43 +124,43 @@ Several parameters need to be set before joining the network, which are passed
 to `New` in a struct.  Unfortunately, not all of the fields in the struct can
 be left to default values.
 
-###Address and Port
+### Address and Port
 If the address is set, a listener will be started on the given address and port
 which will accept connections from other peers.
 
-###Key
+### Key
 A shared secret common to all members of the mesh network.
 
-###AutoConnect
+### AutoConnect
 If true, connections will be attepmted to other members of the mesh network
 besides the initial connections.  This improves robustness at the cost of
 extra comms on the wire.
 
-###ConnLimit
+### ConnLimit
 Limits the number of connections made.
 
-###NickName
+### NickName
 The human-friendly name for the `Peer` in the mesh network.  All members of the
 mesh network have one, which can be retreived using the `PeerName` as a key
 with `Peer`'s `NickNameFromPeerName()` method.
 
-###Name
+### Name
 The `PeerName` for the `Peer`.  See the [`PeerName`](#PeerName) section.
 
-###InitialPeers
+### InitialPeers
 A slice of `*net.TCPAddr`s to which to make the initial connections to the mesh
 network.  The `[]error` returned from `New()` indicates any errors connecting
 to these addresses.  If the length of the `[]error` is the number of the
 initial peers, no connections were made.
 
-###OnMessage
+### OnMessage
 Callback function which will be called when a unicast (i.e. peer-to-peer)
 message is received.  The first argument to the function is the local `Peer`,
 i.e. not the peer in the mesh network which sent the message.  The sending
 peer is identified by the second argument.  If `OnMessage` is `nil`, incoming
 unicast messages will be discarded.
 
-###OnBroadcast
+### OnBroadcast
 Similar to OnMessage, but called for broadcast (i.e. peer-to-everybody)
 messages.
 
