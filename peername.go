@@ -66,8 +66,8 @@ func (n PeerName) String() string {
 	return mesh.PeerName(n).String()
 }
 
-// UnString reverses the output of PeerName's String() method.  It accepts a
-// hex-digits-and-colon name.
+// UnStringPeerName reverses the output of PeerName's String() method.  It
+// accepts a hex-digits-and-colon name.
 func UnStringPeerName(s string) (PeerName, error) {
 	pn, err := mesh.PeerNameFromString(s)
 	return PeerName(pn), err
