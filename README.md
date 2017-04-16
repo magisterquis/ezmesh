@@ -1,6 +1,7 @@
 ezmesh
 ======
 [![GoDoc](https://godoc.org/github.com/magisterquis/ezmesh?status.svg)](https://godoc.org/github.com/magisterquis/ezmesh)
+
 ezmesh is a lightweight, user-friendly mesh networking library built on top of
 [github.com/weaveworks/mesh](https://github.com/weaveworks/mesh).
 
